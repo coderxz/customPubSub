@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script src="./PubSub.js"></script>
+<script>
+// PubSub语法:
+// 1.消息订阅:token PubSub.subscribe('Name',callback),一般在mounted钩子内用
+// 2.异步消息发布:PubSub.publish('Name',需要发布的消息)
+// 3.同步消息发布:PubSub.publishSync('Name',需要发布的消息)
+// 4.取消订阅:PubSub.unsubscribe(flag),一般在beforeDestroy钩子内用
+PubSub.subscribe('add',(msg,data) => {
+  console.log('add2()',data)
+})
+PubSub.subscribe('add',(msg,data) => {
+  console.log('add1()',data)
+})
+PubSub.subscribe('delete',(msg,data) => {
+  console.log('delete()',data)
+})
+PubSub.publish('add','yinZhao')
+PubSub.publishSync('add','yinZhao')
+console.log('PubSub之后')
+
+</script>
+</body>
+</html>
