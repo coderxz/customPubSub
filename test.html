@@ -24,6 +24,7 @@ PubSub.subscribe('add',(msg,data) => {
 PubSub.subscribe('delete',(msg,data) => {
   console.log('delete()',data)
 })
+PubSub.unsubscribe()
 PubSub.publish('add','yinZhao')
 PubSub.publishSync('add','yinZhao')
 console.log('PubSub之后')
